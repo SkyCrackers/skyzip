@@ -2,9 +2,7 @@ pub mod format;
 pub mod error;
 
 use error::Error;
-use std::fmt::{Formatter, Display};
-use std::mem::transmute;use serde::{Deserialize, Deserializer};
-use serde::de::{Visitor, StdError};
+use serde::Deserialize;
 use serde::de::value::BytesDeserializer;
 
 pub trait File<'de> where Self: Deserialize<'de> + From<&'de [u8]> {

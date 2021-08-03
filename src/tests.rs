@@ -1,4 +1,4 @@
-use crate::file::ArchiveFile;
+use crate::file::{ArchiveFile, File};
 
 #[test]
 fn test() {
@@ -8,4 +8,11 @@ fn test() {
 	let file = ArchiveFile::from(bytes);
 	// print file
 	println!("{:#x?}", file);
+
+	let _h = file.header().to_ne_bytes();
+	// header string
+	let header = String::from_utf8_lossy(&_h);
+
+	// print header
+	println!("{}", header);
 }

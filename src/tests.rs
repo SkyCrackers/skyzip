@@ -2,17 +2,16 @@ use crate::file::{ArchiveFile, File};
 
 #[test]
 fn test() {
-	// cast from slice to array
+	// read file to byte array
 	let bytes: &[u8] = include_bytes!("../run/cardgame_card_000.arc");
-	// read file
+
+	// read file to struct
 	let file = ArchiveFile::from(bytes);
-	// print file
+
 	println!("{:#x?}", file);
 
-	let _h = file.header().to_ne_bytes();
-	// header string
-	let header = String::from_utf8_lossy(&_h);
+	let _header_bytes = file.header().to_ne_bytes();
+	let header = String::from_utf8_lossy(&_header_bytes);
 
-	// print header
 	println!("{}", header);
 }

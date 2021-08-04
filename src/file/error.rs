@@ -1,4 +1,5 @@
 use std::fmt::{Display, Formatter};
+
 use serde::de::StdError;
 
 #[derive(Debug, Clone, PartialEq)]
